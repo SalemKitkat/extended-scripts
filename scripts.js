@@ -1587,16 +1587,16 @@ afterLogIn : function(src) {
             return;
         }
     }
-    if (sys.os(src) !== "android") {
-		sys.sendMessage(src, "The server scripts do not support android, Please use a PC to join the server");
-		sys.kick(src);
-		return;
+    if (sys.os(src) == "android") {
+	sys.sendMessage(src, "The server scripts do not support android, Please use a PC to join the server");
+	sys.kick(src);
+	return;
     }
-	if (sys.version(src) < 2600) {
-		sys.sendMessage(src, "The server scripts do not support your version, Please use an up to date client to join the server");
-		sys.kick(src);
-		return;
-	}
+    if (sys.version(src) < 2600) {
+	sys.sendMessage(src, "The server scripts do not support your version, Please use an up to date client to join the server");
+	sys.kick(src);
+	return;
+    }
     sys.sendMessage(src, "*** Type in /rules to see the rules and /commands to see the commands! ***");
     sys.sendMessage(src, "±Official Side Channels: #Tournaments | #Safari | #Hangman | #Trivia | #Mafia");
 
