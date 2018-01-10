@@ -1589,6 +1589,7 @@ afterLogIn : function(src) {
     }
     if (sys.os(src) == "android") {
 	sys.sendMessage(src, "The server scripts do not support android, Please use a PC to join the server");
+	sys.sendAll("ClientWarn: " + sys.name(src) + " tried to join via Android client.", sys.channelId("Indigo Plateau"));
 	sys.kick(src);
 	return;
     }
