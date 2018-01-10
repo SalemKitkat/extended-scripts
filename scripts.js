@@ -4,11 +4,11 @@
  * Made by Hakou (github.com/SalemKitKat)
 */
 var Auth = {
-	userFormat: "[User]",
-	modFormat: "[Moderator]",
-	adminFormat: "[Administrator]",
-	ownerFormat: "[Owner]",
-	hiddenFormat: "[User]"
+	userFormat: "<b><font color='grey'>[User]</font></b>",
+	modFormat: "<b><font color='green'>[Moderator]</font></b>",
+	adminFormat: "<b><font color='gold'>[Administrator]</font></b>",
+	ownerFormat: "<b><font color='maroon'>[Owner]</font></b>",
+	hiddenFormat: "<b><font color='grey'>[User]</font></b>"
 };
 var CustomText = {
 	userFormat: " ",
@@ -2186,31 +2186,31 @@ beforeChatMessage: function(src, message, chan) {
         return;
     }*/
 	if (sys.auth(src) >= 4) {
-		sys.sendHtmlAll("<span style='color: " + sys.getColor(src) + "'><timestamp/>" + Auth.hiddenFormat + " <b>" + sys.name(src) + "</b></span>" + CustomText.hiddenFormat + message.replace("&", "&amp;").replace("<", "&lt;"), channel);
+		sys.sendHtmlAll("<span style='color: " + sys.getColor(src) + "'><timestamp/>" + Auth.hiddenFormat + " <b>" + sys.name(src) + ":</b></span> " + CustomText.hiddenFormat + message.replace("&", "&amp;").replace("<", "&lt;"), channel);
 		sys.stopEvent();
 		this.afterChatMessage(src, message, channel);
 		return;
 	}
 	if (sys.auth(src) == 3) {
-		sys.sendHtmlAll("<span style='color: " + sys.getColor(src) + "'><timestamp/>" + Auth.ownerFormat + " <b>" + sys.name(src) + "</b></span>" + CustomText.ownerFormat + message.replace("&", "&amp;").replace("<", "&lt;"), channel);
+		sys.sendHtmlAll("<span style='color: " + sys.getColor(src) + "'><timestamp/>" + Auth.ownerFormat + " <b>" + sys.name(src) + ":</b></span> " + CustomText.ownerFormat + message.replace("&", "&amp;").replace("<", "&lt;"), channel);
 		sys.stopEvent();
 		this.afterChatMessage(src, message, channel);
 		return;
 	}
 	if (sys.auth(src) == 2) {
-		sys.sendHtmlAll("<span style='color: " + sys.getColor(src) + "'><timestamp/>" + Auth.adminFormat + " <b>" + sys.name(src) + "</b></span>" + CustomText.adminFormat + message.replace("&", "&amp;").replace("<", "&lt;"), channel);
+		sys.sendHtmlAll("<span style='color: " + sys.getColor(src) + "'><timestamp/>" + Auth.adminFormat + " <b>" + sys.name(src) + ":</b></span> " + CustomText.adminFormat + message.replace("&", "&amp;").replace("<", "&lt;"), channel);
 		sys.stopEvent();
 		this.afterChatMessage(src, message, channel);
 		return;
 	}
 	if (sys.auth(src) == 1) {
-		sys.sendHtmlAll("<span style='color: " + sys.getColor(src) + "'><timestamp/>" + Auth.modFormat + " <b>" + sys.name(src) + "</b></span>" + CustomText.modFormat + message.replace("&", "&amp;").replace("<", "&lt;"), channel);
+		sys.sendHtmlAll("<span style='color: " + sys.getColor(src) + "'><timestamp/>" + Auth.modFormat + " <b>" + sys.name(src) + ":</b></span> " + CustomText.modFormat + message.replace("&", "&amp;").replace("<", "&lt;"), channel);
 		sys.stopEvent();
 		this.afterChatMessage(src, message, channel);
 		return;
 	}
 	if (sys.auth(src) == 0) {
-		sys.sendHtmlAll("<span style='color: " + sys.getColor(src) + "'><timestamp/>" + Auth.userFormat + " <b>" + sys.name(src) + "</b></span>" + CustomText.userFormat + message.replace("&", "&amp;").replace("<", "&lt;"), channel);
+		sys.sendHtmlAll("<span style='color: " + sys.getColor(src) + "'><timestamp/>" + Auth.userFormat + " <b>" + sys.name(src) + ":</b></span> " + CustomText.userFormat + message.replace("&", "&amp;").replace("<", "&lt;"), channel);
 		sys.stopEvent();
 		this.afterChatMessage(src, message, channel);
 		return;
