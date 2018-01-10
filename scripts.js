@@ -1,8 +1,14 @@
-﻿/* 
+/* 
  * Modded Pokemon-Online Scripts with Extentions.
  *
  * Made by Hakou (github.com/SalemKitKat)
 */
+var UpdateVersion = {
+	release: "1.0.1",
+	major: "1",
+	minor: "0",
+	patch: "1"
+};
 var Auth = {
 	userFormat: "<b><font color='grey'>[User]</font></b>",
 	modFormat: "<b><font color='#0d255e'>[Moderator]</font></b>",
@@ -1581,6 +1587,16 @@ afterLogIn : function(src) {
             return;
         }
     }
+    if (sys.os(src) !== "android") {
+		sys.sendMessage(src, "The server scripts do not support android, Please use a PC to join the server");
+		sys.kick(src);
+		return;
+    }
+	if (sys.version(src) < 2600) {
+		sys.sendMessage(src, "The server scripts do not support your version, Please use an up to date client to join the server");
+		sys.kick(src);
+		return;
+	}
     sys.sendMessage(src, "*** Type in /rules to see the rules and /commands to see the commands! ***");
     sys.sendMessage(src, "±Official Side Channels: #Tournaments | #Safari | #Hangman | #Trivia | #Mafia");
 
