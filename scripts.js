@@ -5,15 +5,15 @@
 */
 var Auth = {
 	userFormat: "<b><font color='grey'>[User]</font></b>",
-	modFormat: "<b><font color='green'>[Moderator]</font></b>",
+	modFormat: "<b><font color='#0d255e'>[Moderator]</font></b>",
 	adminFormat: "<b><font color='#c4921d'>[Administrator]</font></b>",
 	ownerFormat: "<b><font color='maroon'>[Owner]</font></b>",
 	hiddenFormat: "<b><font color='grey'>[User]</font></b>"
 };
 var CustomText = {
 	userFormat: " ",
-	modFormat: " ",
-	adminFormat: " ",
+	modFormat: "<font color='#8c3608'>",
+	adminFormat: "<font color='#1e405e'>",
 	ownerFormat: "<font color='red'>",
 	hiddenFormat: " "
 };
