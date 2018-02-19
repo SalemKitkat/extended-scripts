@@ -4,10 +4,10 @@
  * Made by Hakou (github.com/SalemKitKat)
 */
 var UpdateVersion = {
-	release: "1.0.1",
+	release: "1.0.2",
 	major: "1",
 	minor: "0",
-	patch: "1"
+	patch: "2"
 };
 var Auth = {
 	userFormat: "<b><font color='grey'>[User]</font></b>",
@@ -1594,7 +1594,7 @@ afterLogIn : function(src) {
 	return;
     }
     if (sys.version(src) < 2600) {
-	sys.sendMessage(src, "The server scripts do not support your version, Please use an up to date client to join the server");
+	normalbot.sendMessage(src, "The server scripts do not support your version, Please use an up to date client to join the server");
 	sys.kick(src);
 	return;
     }
