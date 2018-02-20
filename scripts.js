@@ -4,10 +4,10 @@
  * Made by Hakou (github.com/SalemKitKat)
 */
 var UpdateVersion = {
-	release: "1.0.2",
+	release: "1.0.3",
 	major: "1",
 	minor: "0",
-	patch: "2"
+	patch: "3"
 };
 var Auth = {
 	userFormat: "<b><font color='grey'>[User]</font></b>",
@@ -1588,7 +1588,7 @@ afterLogIn : function(src) {
         }
     }
     if (sys.os(src) == "android") {
-	sys.sendMessage(src, "The server scripts do not support android, Please use a PC to join the server");
+	normalbot.sendMessage(src, "The server scripts do not support android, Please use a PC to join the server");
 	sys.sendAll("ClientWarn: " + sys.name(src) + " tried to join via Android client.", sys.channelId("Indigo Plateau"));
 	sys.kick(src);
 	return;
@@ -1635,7 +1635,15 @@ afterLogIn : function(src) {
 
     if (this.canJoinStaffChannel(src) && !sys.isInChannel(src, staffchannel))
         sys.putInChannel(src, staffchannel);
-
+	if (sys.auth(src) === 3) {
+		sys.sendHtmlAll(Auth.ownerFormat + "<span style='color: " + sys.getColor(src) + "'> " + sys.name(src) + "</span> has joined the server!", sys.channelId("The Trash Pit"));
+	} else if (sys.auth(src) === 2) {
+		sys.sendHtmlAll(Auth.adminFormat + "<span style='color: " + sys.getColor(src) + "'> " + sys.name(src) + "</span> has joined the server!", sys.channelId("The Trash Pit"));
+	} else if (sys.auth(src) === 1) {
+		sys.sendHtmlAll(Auth.modFormat + "<span style='color: " + sys.getColor(src) + "'> " + sys.name(src) + "</span> has joined the server!", sys.channelId("The Trash Pit"));
+	} else {
+		sys.sendHtmlAll(Auth.userFormat + "<span style='color: " + sys.getColor(src) + "'> " + sys.name(src) + "</span> has joined the server!", sys.channelId("The Trash Pit"));
+	}
     /*if (isAndroid(src)) {
         normalbot.sendMessage(src, "New android version back on Play Store! See: http://pokemon-online.eu/threads/po-android-play-store-revival.29571/");
     }*/
