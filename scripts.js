@@ -1637,8 +1637,10 @@ afterLogIn : function(src) {
         sys.putInChannel(src, staffchannel);
 	if (sys.auth(src) == 3) {
 		sys.sendHtmlAll("<timestamp/>" + Auth.ownerFormat + "<span style='color: " + sys.getColor(src) + "'><b> " + sys.name(src) + "</b></span> has joined the server!", sys.channelId("The Trash Pit"));
+	}
 	if (sys.auth(src) == 2) {
 		sys.sendHtmlAll("<timestamp/>" + Auth.adminFormat + "<span style='color: " + sys.getColor(src) + "'><b> " + sys.name(src) + "</b></span> has joined the server!", sys.channelId("The Trash Pit"));
+	}
 	if (sys.auth(src) == 1) {
 		sys.sendHtmlAll("<timestamp/>" + Auth.modFormat + "<span style='color: " + sys.getColor(src) + "'><b> " + sys.name(src) + "</b></span> has joined the server!", sys.channelId("The Trash Pit"));
 	} else {
