@@ -1636,13 +1636,13 @@ afterLogIn : function(src) {
     if (this.canJoinStaffChannel(src) && !sys.isInChannel(src, staffchannel))
         sys.putInChannel(src, staffchannel);
 	if (sys.auth(src) == 3) {
-		sys.sendHtmlAll(Auth.ownerFormat + "<span style='color: " + sys.getColor(src) + "'> " + sys.name(src) + "</span> has joined the server!", sys.channelId("The Trash Pit"));
+		sys.sendHtmlAll("<timestamp/>" + Auth.ownerFormat + "<span style='color: " + sys.getColor(src) + "'><b> " + sys.name(src) + "</b></span> has joined the server!", sys.channelId("The Trash Pit"));
 	} else if (sys.auth(src) == 2) {
-		sys.sendHtmlAll(Auth.adminFormat + "<span style='color: " + sys.getColor(src) + "'> " + sys.name(src) + "</span> has joined the server!", sys.channelId("The Trash Pit"));
+		sys.sendHtmlAll("<timestamp/>" + Auth.adminFormat + "<span style='color: " + sys.getColor(src) + "'><b> " + sys.name(src) + "</b></span> has joined the server!", sys.channelId("The Trash Pit"));
 	} else if (sys.auth(src) == 1) {
-		sys.sendHtmlAll(Auth.modFormat + "<span style='color: " + sys.getColor(src) + "'> " + sys.name(src) + "</span> has joined the server!", sys.channelId("The Trash Pit"));
+		sys.sendHtmlAll("<timestamp/>" + Auth.modFormat + "<span style='color: " + sys.getColor(src) + "'><b> " + sys.name(src) + "</b></span> has joined the server!", sys.channelId("The Trash Pit"));
 	} else {
-		sys.sendHtmlAll(Auth.userFormat + "<span style='color: " + sys.getColor(src) + "'> " + sys.name(src) + "</span> has joined the server!", sys.channelId("The Trash Pit"));
+		sys.sendHtmlAll("<timestamp/>" + Auth.userFormat + "<span style='color: " + sys.getColor(src) + "'><b> " + sys.name(src) + "</b></span> has joined the server!", sys.channelId("The Trash Pit"));
 	}
     /*if (isAndroid(src)) {
         normalbot.sendMessage(src, "New android version back on Play Store! See: http://pokemon-online.eu/threads/po-android-play-store-revival.29571/");
