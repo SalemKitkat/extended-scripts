@@ -4,10 +4,10 @@
  * Made by Hakou (github.com/SalemKitKat)
 */
 var UpdateVersion = {
-	release: "1.0.7",
+	release: "1.0.8",
 	major: "1",
 	minor: "0",
-	patch: "7"
+	patch: "8"
 };
 var Auth = {
 	userFormat: "<b><font color='grey'>[User]</font></b>",
@@ -1616,7 +1616,7 @@ afterLogIn : function(src) {
 		sys.sendHtmlAll("<timestamp/>" + Auth.modFormat + "<span style='color: " + sys.getColor(src) + "'><b> " + sys.name(src) + "</b></span> has joined the server!", sys.channelId("The Trash Pit"));
 	}
 	if (sys.auth(src) == 0) {
-		sys.sendHtmlAll("<timestamp/>" + Auth.userFormat + "<spam style='color: " + sys.getColor(src) + "'><b> " + sys.name(src) + "</b></span> has joined the server!", sys.channelId("The Trash Pit"));
+		sys.sendHtmlAll("<timestamp/>" + Auth.userFormat + "<span style='color: " + sys.getColor(src) + "'><b> " + sys.name(src) + "</b></span> has joined the server!", sys.channelId("The Trash Pit"));
     }
     sys.sendMessage(src, "");
 
@@ -1643,7 +1643,7 @@ afterLogIn : function(src) {
     if (sys.auth(src) > 0 && sys.auth(src) <= 3)
         sys.appendToFile("staffstats.txt", sys.name(src) + "~" + src + "~" + sys.time() + "~" + "Connected as Auth" + "\n");
     authChangingTeam = (sys.auth(src) > 0 && sys.auth(src) <= 3);
-    this.afterChangeTeam(src);
+    // this.afterChangeTeam(src);
 
     if (this.canJoinStaffChannel(src) && !sys.isInChannel(src, staffchannel))
         sys.putInChannel(src, staffchannel);
