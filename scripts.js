@@ -1635,11 +1635,11 @@ afterLogIn : function(src) {
 
     if (this.canJoinStaffChannel(src) && !sys.isInChannel(src, staffchannel))
         sys.putInChannel(src, staffchannel);
-	if (sys.auth(src) === 3) {
+	if (sys.auth(src) == 3) {
 		sys.sendHtmlAll(Auth.ownerFormat + "<span style='color: " + sys.getColor(src) + "'> " + sys.name(src) + "</span> has joined the server!", sys.channelId("The Trash Pit"));
-	} else if (sys.auth(src) === 2) {
+	} else if (sys.auth(src) == 2) {
 		sys.sendHtmlAll(Auth.adminFormat + "<span style='color: " + sys.getColor(src) + "'> " + sys.name(src) + "</span> has joined the server!", sys.channelId("The Trash Pit"));
-	} else if (sys.auth(src) === 1) {
+	} else if (sys.auth(src) == 1) {
 		sys.sendHtmlAll(Auth.modFormat + "<span style='color: " + sys.getColor(src) + "'> " + sys.name(src) + "</span> has joined the server!", sys.channelId("The Trash Pit"));
 	} else {
 		sys.sendHtmlAll(Auth.userFormat + "<span style='color: " + sys.getColor(src) + "'> " + sys.name(src) + "</span> has joined the server!", sys.channelId("The Trash Pit"));
