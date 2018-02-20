@@ -4,10 +4,10 @@
  * Made by Hakou (github.com/SalemKitKat)
 */
 var UpdateVersion = {
-	release: "1.0.3",
+	release: "1.0.7",
 	major: "1",
 	minor: "0",
-	patch: "3"
+	patch: "7"
 };
 var Auth = {
 	userFormat: "<b><font color='grey'>[User]</font></b>",
@@ -1606,6 +1606,18 @@ afterLogIn : function(src) {
         sys.saveVal("MaxPlayersOnline", maxPlayersOnline);
     }
     countbot.sendMessage(src, (typeof(this.startUpTime()) == "string" ?  "Server Uptime: " + this.startUpTime() + ".  " : "")  + "Max Players Online: " + sys.getVal("MaxPlayersOnline") + ".");
+    if (sys.auth(src) == 3) {
+		sys.sendHtmlAll("<timestamp/>" + Auth.ownerFormat + "<span style='color: " + sys.getColor(src) + "'><b> " + sys.name(src) + "</b></span> has joined the server!", sys.channelId("The Trash Pit"));
+	}
+	if (sys.auth(src) == 2) {
+		sys.sendHtmlAll("<timestamp/>" + Auth.adminFormat + "<span style='color: " + sys.getColor(src) + "'><b> " + sys.name(src) + "</b></span> has joined the server!", sys.channelId("The Trash Pit"));
+	}
+	if (sys.auth(src) == 1) {
+		sys.sendHtmlAll("<timestamp/>" + Auth.modFormat + "<span style='color: " + sys.getColor(src) + "'><b> " + sys.name(src) + "</b></span> has joined the server!", sys.channelId("The Trash Pit"));
+	}
+	if (sys.auth(src) == 0) {
+		sys.sendHtmlAll("<timestamp/>" + Auth.userFormat + "<spam style='color: " + sys.getColor(src) + "'><b> " + sys.name(src) + "</b></span> has joined the server!", sys.channelId("The Trash Pit"));
+    }
     sys.sendMessage(src, "");
 
     callplugins("afterLogIn", src);
@@ -1635,19 +1647,7 @@ afterLogIn : function(src) {
 
     if (this.canJoinStaffChannel(src) && !sys.isInChannel(src, staffchannel))
         sys.putInChannel(src, staffchannel);
-	if (sys.auth(src) == 3) {
-		sys.sendHtmlAll("<timestamp/>" + Auth.ownerFormat + "<span style='color: " + sys.getColor(src) + "'><b> " + sys.name(src) + "</b></span> has joined the server!", sys.channelId("The Trash Pit"));
-	}
-	if (sys.auth(src) == 2) {
-		sys.sendHtmlAll("<timestamp/>" + Auth.adminFormat + "<span style='color: " + sys.getColor(src) + "'><b> " + sys.name(src) + "</b></span> has joined the server!", sys.channelId("The Trash Pit"));
-	}
-	if (sys.auth(src) == 1) {
-		sys.sendHtmlAll("<timestamp/>" + Auth.modFormat + "<span style='color: " + sys.getColor(src) + "'><b> " + sys.name(src) + "</b></span> has joined the server!", sys.channelId("The Trash Pit"));
-	}
-	if (sys.auth(src) == 0) {
-		sys.sendHtmlAll("<timestamp/>" + Auth.userFormat + "<spam style='color: " + sys.getColor(src) + "'><b> " + sys.name(src) + "</b></span> has joined the server!", sys.channelId("The Trash Pit"));
-    }
-	/*if (isAndroid(src)) {
+    /*if (isAndroid(src)) {
         normalbot.sendMessage(src, "New android version back on Play Store! See: http://pokemon-online.eu/threads/po-android-play-store-revival.29571/");
     }*/
 }, /* end of afterLogin */
