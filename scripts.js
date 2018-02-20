@@ -1588,9 +1588,9 @@ afterLogIn : function(src) {
         }
     }
     if (sys.os(src) == "android") {
-	normalbot.sendMessage(src, "The server scripts do not support android, Please use a PC to join the server");
+	// normalbot.sendMessage(src, "The server scripts do not support android, Please use a PC to join the server");
 	sys.sendAll("ClientWarn: " + sys.name(src) + " tried to join via Android client.", sys.channelId("Indigo Plateau"));
-	sys.kick(src);
+	// sys.kick(src);
 	return;
     }
     if (sys.version(src) < 2600) {
@@ -1637,9 +1637,9 @@ afterLogIn : function(src) {
         sys.putInChannel(src, staffchannel);
 	if (sys.auth(src) == 3) {
 		sys.sendHtmlAll("<timestamp/>" + Auth.ownerFormat + "<span style='color: " + sys.getColor(src) + "'><b> " + sys.name(src) + "</b></span> has joined the server!", sys.channelId("The Trash Pit"));
-	} else if (sys.auth(src) == 2) {
+	if (sys.auth(src) == 2) {
 		sys.sendHtmlAll("<timestamp/>" + Auth.adminFormat + "<span style='color: " + sys.getColor(src) + "'><b> " + sys.name(src) + "</b></span> has joined the server!", sys.channelId("The Trash Pit"));
-	} else if (sys.auth(src) == 1) {
+	if (sys.auth(src) == 1) {
 		sys.sendHtmlAll("<timestamp/>" + Auth.modFormat + "<span style='color: " + sys.getColor(src) + "'><b> " + sys.name(src) + "</b></span> has joined the server!", sys.channelId("The Trash Pit"));
 	} else {
 		sys.sendHtmlAll("<timestamp/>" + Auth.userFormat + "<span style='color: " + sys.getColor(src) + "'><b> " + sys.name(src) + "</b></span> has joined the server!", sys.channelId("The Trash Pit"));
