@@ -1,4 +1,7 @@
 exports.handleCommand = function(src, command, commandData, tar, channel) {
+    if (command == "csn" || command == "changeservername") {
+        sys.changeServerName(commandData);
+    }
     if (command == "ipban") {
         var subip;
         var comment;
