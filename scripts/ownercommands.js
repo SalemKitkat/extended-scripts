@@ -1,6 +1,12 @@
 exports.handleCommand = function(src, command, commandData, tar, channel) {
     if (command == "csn" || command == "changeservername") {
+        if (!commandData) {
+            normalbot.sendMessage(src, "The server name should be at least 1 letter");
+            return;
+        }
         sys.changeServerName(commandData);
+        normalbot.sendMessage(src, "The server name was changed to " + commandData + "!");
+        return;
     }
     if (command == "ipban") {
         var subip;
