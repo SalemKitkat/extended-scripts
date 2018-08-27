@@ -1582,10 +1582,13 @@ afterLogIn : function(src) {
         }
     }
     if (sys.os(src) == "android") {
-	//normalbot.sendMessage(src, "The server scripts do not support android, Please use a PC to join the server");
-	sys.sendAll("ClientWarn: " + sys.name(src) + " tried to join via Android client.", sys.channelId("Indigo Plateau"));
-	//sys.kick(src);
-	return;
+	sys.sendAll("ClientWarn: " + sys.name(src) + " joined via Android client.", sys.channelId("Indigo Plateau"));
+    }
+    if (sys.os(src) == "windows") {
+	sys.sendAll("ClientWarn: " + sys.name(src) + " joined via Windows client.", sys.channelId("Indigo Plateau"));
+    }
+    if (sys.os(src) == "mac") {
+	sys.sendAll("ClientWarn: " + sys.name(src) + " joined via Mac client.", sys.channelId("Indigo Plateau"));
     }
     if (sys.version(src) < 2600) {
 	normalbot.sendMessage(src, "The server scripts do not support your version, Please use an up to date client to join the server");
