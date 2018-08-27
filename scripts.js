@@ -3,12 +3,6 @@
  *
  * Made by Hakou (github.com/SalemKitKat)
 */
-var UpdateVersion = {
-	release: "1.0.8",
-	major: "1",
-	minor: "0",
-	patch: "8"
-};
 var Auth = {
 	userFormat: "<b><font color='grey'>[User]</font></b>",
 	modFormat: "<b><font color='#0d255e'>[Moderator]</font></b>",
@@ -24,7 +18,7 @@ var CustomText = {
 	hiddenFormat: " "
 };
 var Config = {
-    base_url: "https://raw.githubusercontent.com/SalemKitkat/extended-scripts/master/",
+    base_url: "https://raw.githubusercontent.com/SalemKitkat/po-server-boilerplate/master/",
     dataDir: "scriptdata/",
     bot: "Dratini",
     kickbot: "Blaziken",
